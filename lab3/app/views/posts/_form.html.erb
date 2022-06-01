@@ -1,0 +1,18 @@
+<div class="container mt-2">
+<%= form_with model: @post do |f| %>
+<%= f.text_field :title , class: "form-control mt-2" ,placeholder:"title ..."%>
+<% @post.errors.full_messages_for(:title).each do |error_message| %>
+    <ul>
+        <li><span style="color:red;"><%= error_message %><span></li>
+    </ul>
+<% end %>
+<%= f.text_area :content , class: "form-control mt-2" ,placeholder:"content ..." , rows: 5%>
+<% @post.errors.full_messages_for(:content).each do |error_message| %>
+    <ul>
+        <li><span style="color:red;"><%= error_message %><span></li>
+    </ul>
+<% end %>
+<button class="btn btn-outline-success mt-2" type="submit">Save</button>
+
+<%end%>
+</div>

@@ -1,0 +1,13 @@
+<div class="container">
+<h1>Signin Form</h1>
+<% if flash[:notice] %>
+  <div class="alert alert-danger">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+<%= form_with url: login_path do |f| %>
+<%= f.email_field :email, class: "form-control" ,placeholder:"E-mail"%>
+<%= f.password_field :password, class: "form-control" ,placeholder:"password"%>
+<button class="btn btn-outline-success" type="submit">Login</button>
+<% end %>
+</div>

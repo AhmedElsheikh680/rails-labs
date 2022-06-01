@@ -1,0 +1,33 @@
+
+<div class="container mt-2">
+<h1>Signup Form</h1>
+
+<%= form_with model: @user , url: register_path do |f| %>
+<%= f.text_field :name , class: "form-control mt-2" ,placeholder:"name"%>
+<% @user.errors.full_messages_for(:name).each do |error_message| %>
+    <ul>
+        <li><span style="color:red;"><%= error_message %><span></li>
+    </ul>
+<% end %>
+<%= f.email_field :email, class: "form-control mt-2" ,placeholder:"E-mail"%>
+<% @user.errors.full_messages_for(:email).each do |error_message| %>
+    <ul>
+        <li><span style="color:red;"><%= error_message %><span></li>
+    </ul>
+<% end %>
+<%= f.password_field :password, class: "form-control mt-2" ,placeholder:"password"%>
+<%= f.password_field :password_confirmation, class: "form-control mt-2" ,placeholder:"password confirm"%>
+<% @user.errors.full_messages_for(:password).each do |error_message| %>
+    <ul>
+        <li><span style="color:red;"><%= error_message %><span></li>
+    </ul>
+<% end %>
+<% @user.errors.full_messages_for(:password_confirmation).each do |error_message| %>
+    <ul>
+        <li><span style="color:red;"><%= error_message %><span></li>
+    </ul>
+<% end %>
+<button class="btn btn-outline-success mt-2" type="submit">Register</button>
+<% end %>
+
+</div>
